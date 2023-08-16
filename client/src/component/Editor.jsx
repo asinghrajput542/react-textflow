@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react'
 import Quill from 'quill';
 import 'quill/dist/quill.snow.css'
 import { io } from 'socket.io-client';
+import {useParams} from 'react-router-dom'
 
 const toolbarOptions = [
     ['bold', 'italic', 'underline', 'strike'],        // toggled buttons
@@ -27,12 +28,15 @@ const toolbarOptions = [
 const Editor = () => {
     const[socket,setSocket]=useState();
     const [quill,setQuill]=useState();
+    const {id}=useParams();
 
     useEffect(()=>{
         const quillServer = new Quill('#container', {
             theme: 'snow',
             modules: { toolbar: toolbarOptions }
           });
+          quillServer.disable();
+          quillServer.setText('Loading the document...')
           setQuill(quillServer);
     },[])
     useEffect(()=>{
@@ -59,7 +63,7 @@ const Editor = () => {
           
         },[quill,socket]);
 
-        useEffect(()=>{
+    useEffect(()=>{
             if(socket===null || quill=== null) return;
             const handleChange=(delta, ) =>{
                 quill.updateContents(delta);
@@ -70,9 +74,32 @@ const Editor = () => {
                 socket && socket.off('receive-changes',handleChange)
             }
     
-              
-            },[quill,socket]);
+                
+        },[quill,socket]);
           
+    useEffect(() => {
+            if (quill === null || socket === null) return;
+    
+            socket && socket.once('load-document', document => {
+                quill.setContents(document);
+                quill.enable();
+            })
+    
+            socket && socket.emit('get-document', id);
+        },  [quill, socket, id]);
+
+    useEffect(() => {
+            if (quill === null || socket === null) return;
+
+            const interval=setInterval(()=>{
+                socket && socket.emit('save-document',quill.getContents())
+            },200)
+          
+            return()=>{
+                clearInterval(interval);
+            }
+        },  [quill, socket]);
+
   return (
     <div className='editor-body'>
         <div id='container' className='content-body'>
