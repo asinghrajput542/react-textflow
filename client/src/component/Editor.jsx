@@ -28,7 +28,7 @@ const toolbarOptions = [
 const Editor = () => {
     const[socket,setSocket]=useState();
     const [quill,setQuill]=useState();
-    const {id}=useParams();
+    const {id,name}=useParams();
 
     useEffect(()=>{
         const quillServer = new Quill('#container', {
@@ -85,7 +85,7 @@ const Editor = () => {
                 quill.enable();
             })
     
-            socket && socket.emit('get-document', id);
+            socket && socket.emit('get-document', id,name);
         },  [quill, socket, id]);
 
     useEffect(() => {

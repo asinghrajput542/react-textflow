@@ -1,0 +1,32 @@
+
+
+.blank-page{
+    width: 100%;
+    height: 250px;
+    background-color: whitesmoke;
+    
+}
+
+.blank-page>img{
+    width: 144px;
+    height: 70%;
+    background-color: blueviolet;
+    margin-left: 15%;
+}
+.blank-page>h4{
+    font-weight: normal;
+    margin-bottom: 15px;
+    margin-left: 15%;
+    padding-top: 10px;
+}
+.blank-page>h3{
+    margin-left: 15%;
+}
+.popUpHome{
+   
+   right: 30%;
+   left: 30%;
+   top: 40%;
+    position: fixed;
+    z-index: 9999;
+}

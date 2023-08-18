@@ -1,0 +1,14 @@
+.header{
+    display: flex;
+    align-items: center;
+    margin-bottom: 5px;
+    margin-top: 5px;
+}
+.header>span{
+    font-weight: bolder;
+    font-size: large;
+    color: grey;
+}
+a {
+    text-decoration: none; /* Remove underline */
+  }
