@@ -7,7 +7,7 @@ const documentSchema= mongoose.Schema({
     },
     name:{
         type:String,
-        required:false
+        required:true
     }
     ,
     data:{

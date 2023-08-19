@@ -1,9 +1,7 @@
 import {Server} from 'socket.io'
-// import express from 'express'
 import connection from './database/db.js';
 import { getDocument,getDocumentList,updateDocumentById } from './controller/document-controller.js';
 import express from 'express';
-import Document from "./schema/documentSchema.js";
 
 const port=9000
 const app = express();
@@ -15,14 +13,14 @@ const httpServer = app.listen(port, () => {
 
 const io=new Server(httpServer,{
     cors:{
-        origin:"http://localhost:3000",
+        origin:"https://react-textflow.vercel.app/",
         methods:['GET','POST'],
     }
 });
 
 io.on('connection',socket=>{
-    socket.on('get-document',async documentId=>{
-        const documentData= await getDocument(documentId);
+    socket.on('get-document',async (documentId,name)=>{
+        const documentData= await getDocument(documentId,name);
         socket.join(documentId);
         socket.emit('load-document',documentData.data);
 
