@@ -1,4 +1,7 @@
-
+/* .home-layout{
+    display: flex;
+    flex-direction: column;
+} */
 
 .blank-page{
     width: 100%;
@@ -12,6 +15,7 @@
     height: 70%;
     background-color: blueviolet;
     margin-left: 15%;
+    cursor: pointer;
 }
 .blank-page>h4{
     font-weight: normal;
@@ -29,4 +33,36 @@
    top: 40%;
     position: fixed;
     z-index: 9999;
+}
+.doc-list{
+    width: 50%;
+    margin: 10px auto 10px auto;
+}
+.doc-list-header{
+    display: grid;
+    width: 50%;
+    margin: 10px auto 10px auto;
+    grid-template-columns: repeat(2,1fr);
+
+}
+.date-created{
+    display: flex;
+    justify-content: end;
+    margin-right: 15px;
+}
+.my-doc{
+    margin-left: 10px;
+}
+.doc-cards-list{
+    display: flex;
+}
+.card{
+    flex: 1;
+}
+.delete-icon>svg{
+    color: grey;
+    margin-left: 15px;
+    font-size: 18px;
+    margin-top: 3px;
+    cursor: pointer;
 }

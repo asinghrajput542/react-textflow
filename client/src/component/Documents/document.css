@@ -1,0 +1,36 @@
+.document-card-layout{
+ display: flex;
+}
+.document-card{
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    width: 100%;
+    padding:3px;
+    color: grey;
+
+    
+    
+}
+.doc-name{
+    display: flex;
+    align-items: center;
+    margin-right: 40%;
+}
+
+.doc-name>span{
+    margin-left: 10px;
+}
+.doc-name>svg{
+    margin-left: 10px;
+    color: #00b5ff;
+}
+.document-card:hover{
+    background-color: whitesmoke;
+    border-radius: 10px;
+    box-shadow: 1px 1px 1px rgb(240, 239, 239);
+}
+.doc-creation{
+    display: flex;
+    justify-content: end;
+
+}

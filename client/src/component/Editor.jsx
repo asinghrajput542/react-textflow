@@ -3,6 +3,7 @@ import Quill from 'quill';
 import 'quill/dist/quill.snow.css'
 import { io } from 'socket.io-client';
 import {useParams} from 'react-router-dom'
+import { BACKEND_URL } from '../utils/constant';
 
 const toolbarOptions = [
     ['bold', 'italic', 'underline', 'strike'],        // toggled buttons
@@ -40,7 +41,7 @@ const Editor = () => {
           setQuill(quillServer);
     },[])
     useEffect(()=>{
-        const socketServer=io('http://localhost:9000')
+        const socketServer=io(BACKEND_URL)
         setSocket(socketServer);
 
         return ()=>{
