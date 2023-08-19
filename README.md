@@ -1,7 +1,14 @@
-# React-TextFlow
+<div align="center">
+
+<h1><strong>React-TextFlow</strong></h1>
+
+<h2>
+  <a href="https://react-textflow.vercel.app/">Live URL</a>
+</h2>
+</div>
 
 
-Google-docs-clone (React TextFlow), here you can create your own docs and can see other's  docs. Can collaborate remotely in a doc, changes will be applied in real-time using web-socket
+React-TextFlow a Google-docs-clone, here you can create your own docs and can see other's  docs. Can collaborate remotely in a doc, changes will be applied in real-time using web-socket
 
 
 
@@ -39,5 +46,21 @@ Edit and see single doc, after clicked on listed doc/new doc
 
 ----
 ![single-doc](https://raw.githubusercontent.com/asinghrajput542/Images/main/Editor.jpg)
+
+## Frameworks & Libraries used 📚
+
+`ReactJS` `CSS3` `react-router-dom` `Quill` `MUI icons` `Socket.io` `NodeJs` `MongoDb`
+
+## Usage 🍕
+
+To use this project, follow these steps:
+
+1. Clone the repository.
+2. Install the dependencies using `npm install`.
+3. Start the development server using `npm start`.</br>
+For Client -
+4. Open your web browser and navigate to `http://localhost:3000`.</br>
+For Server -
+4. Open your web browser and navigate to `http://localhost:9000`.
 
 
