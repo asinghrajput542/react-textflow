@@ -49,7 +49,7 @@ Edit and see single doc, after clicked on listed doc/new doc
 
 ## Frameworks & Libraries used 📚
 
-`ReactJS` `CSS3` `react-router-dom` `Quill` `MUI icons` `Socket.io` `NodeJs` `MongoDb`
+`ReactJS` `CSS3` `react-router-dom` `Quill` `MUI-icons` `Socket.io` `NodeJs` `MongoDb`
 
 ## Usage 🍕
 
