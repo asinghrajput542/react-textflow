@@ -18,3 +18,7 @@ export const updateDocumentById=async(id,data)=>{
 export const getDocumentList= async ()=>{
     return await Document.find().sort({ modificationDate: -1 }).select('_id modificationDate creationDate name');
 }
+
+export const deleteDocumentById=async (id)=>{
+    return await Document.findByIdAndDelete(id);
+}

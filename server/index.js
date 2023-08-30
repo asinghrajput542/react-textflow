@@ -1,6 +1,6 @@
 import {Server} from 'socket.io'
 import connection from './database/db.js';
-import { getDocument,getDocumentList,updateDocumentById } from './controller/document-controller.js';
+import { deleteDocumentById, getDocument,getDocumentList,updateDocumentById } from './controller/document-controller.js';
 import express from 'express';
 
 const port=9000
@@ -46,6 +46,22 @@ app.get('/documents', async(req, res) => {
         res.status(500).json({ error: 'An error occurred while fetching documents.' });
       }
     
+  });
+  app.delete('/document/:id',async(req,res)=>{
+    try{
+        const doc=await deleteDocumentById(req.params.id);
+        console.log("doc ",doc)
+        if (doc){
+            res.json("ok")
+        }else{
+            return res.status(404).json({ error: 'Document not found' });
+    
+        }
+    }catch(err){
+        console.log(err);
+        res.status(500).json({error:"An error occurred while deleting document"})
+    }
+
   });
 
 
